@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <sys/stat.h>
 #include <sys/types.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <limits.h>
 
 void tree()
 {
@@ -12,8 +15,8 @@ void tree()
     if (dir0 == 0)
     {
         printf("Successfully create Dir0 directory\n");
-
-        FILE *fp = fopen("Dir0//t1.txt", "a"); // create t1.txt inside dir0
+        chdir("./Dir0");
+        FILE *fp = fopen("t1.txt", "a"); // create t1.txt inside dir0
         if (fp != NULL)
         {
             fclose(fp);
@@ -24,7 +27,7 @@ void tree()
             printf("Creating t1.txt failed!\n");
         }
 
-        FILE *fp1 = fopen("Dir0//t2.txt", "a"); // create t2.txt inside dir0
+        FILE *fp1 = fopen("t2.txt", "a"); // create t2.txt inside dir0
         if (fp1 != NULL)
         {
             fclose(fp1);
@@ -35,7 +38,7 @@ void tree()
             printf("Creating t2.txt failed!\n");
         }
 
-        FILE *fp2 = fopen("Dir0//t3.txt", "a"); // create t3.txt inside dir0
+        FILE *fp2 = fopen("t3.txt", "a"); // create t3.txt inside dir0
         if (fp2 != NULL)
         {
             fclose(fp2);
@@ -47,7 +50,7 @@ void tree()
         }
 
         int dir1;
-        dir1 = mkdir("Dir0/Dir1", 0777); // create the directory dir1 inside dir0
+        dir1 = mkdir("Dir1", 0777); // create the directory dir1 inside dir0
         if (dir1 == 0)
         {
             printf("Successfully create Dir1 directory!\n");
@@ -65,8 +68,10 @@ void tree()
 
 int main(int agrc, char *argv[])
 {
-
-    tree(); // run tree function
+    tree();                   // run tree function
+    char cwd[PATH_MAX];       // used to hold our cwd
+    getcwd(cwd, sizeof(cwd)); //get the current directory and store in cwd
+    printf("Current working directory: %s\n", cwd);
 
     return 0;
 }
