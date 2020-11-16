@@ -3,7 +3,6 @@
 #include <sys/types.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <limits.h>
 
 void tree()
 {
@@ -68,10 +67,6 @@ void tree()
 
 int main(int agrc, char *argv[])
 {
-    tree();                   // run tree function
-    char cwd[PATH_MAX];       // used to hold our cwd
-    getcwd(cwd, sizeof(cwd)); //get the current directory and store in cwd
-    printf("Current working directory: %s\n", cwd);
-
+    tree(); // run tree function
     return 0;
 }
