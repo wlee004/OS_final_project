@@ -5,6 +5,7 @@
 
  int path(){
 	char cwd[PATH_MAX]; // used to hold our cwd
+	chdir("./Dir0");
 	getcwd(cwd, sizeof(cwd)); //get the current directory and store in cwd
 	printf("Current working directory: %s\n", cwd);
 
