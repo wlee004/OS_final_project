@@ -9,7 +9,7 @@
 #include <unistd.h>
 
 int main(void){
-
+	chdir("./Dir0");
 	// creating child by using fork()
 	int child_1, child_2;
 	// creating child by using fork()
