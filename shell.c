@@ -6,6 +6,12 @@
 #include <stdlib.h>
 
 int main(){
+	
+	FILE *fp1;
+
+        //Creates a file to store history of commands
+        fp1 = fopen("history" , "w");
+        fclose(fp1);
 
 	char command[50];
 	printf("SHELL >> ");
@@ -19,6 +25,11 @@ int main(){
 			return 1;
 		}
 		if(child == 0){ // child process
+			
+			//saves command to history file
+			fp1 = fopen("history" , "a+");
+			fprintf(fp1,"%s\n",command);
+			fclose(fp1);
 
 			if(strcmp(command, "tree") != 0 && strcmp(command, "list") != 0 &&  
 			   strcmp(command, "path") != 0 && strcmp(command, "exit") != 0){
