@@ -10,6 +10,9 @@
 
 int main(void){
 
+    int child1;   
+    int child2;
+
     if((child1= fork()) == -1){ //Forks first child
         printf("ERROR: First Child \n");
         return -1;
