@@ -9,6 +9,8 @@
 #include <unistd.h>
 
 int main(void){
+	
+    chdir("./Dir0");
 
     int child1;   
     int child2;
