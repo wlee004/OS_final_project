@@ -7,9 +7,7 @@
 void tree()
 {
     int dir0;
-    dir0 = mkdir("Dir0", 0777); // create the directory nameed dir0
-
-    // if dir0 exist
+    dir0 = mkdir("Dir0", 0777); // create the directory named dir0
 
     if (dir0 == 0)
     {
