@@ -10,8 +10,7 @@
 
 int main(void){
 	
-    chdir("./Dir0");
-
+ 
     int child1;   
     int child2;
 
@@ -34,6 +33,7 @@ int main(void){
         }
 
         if(child2==0){//Second Child performs ls on current directory
+        	chdir("./Dir0");
             execlp("ls","ls","-l",NULL);
             printf("Ls FAILED \n");
             exit(0);
